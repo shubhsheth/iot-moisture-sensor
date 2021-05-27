@@ -94,8 +94,7 @@ const queryFirebase = async (deviceId) => {
 	const snapshotVal = snapshot.val();
 	return {
 		on: snapshotVal.OnOff.on,
-		isPaused: snapshotVal.StartStop.isPaused,
-		isRunning: snapshotVal.StartStop.isRunning,
+		temperatureSetpointCelsius: snapshotVal.TemperatureControl.temperatureSetpointCelsius
 	};
 };
 
@@ -103,15 +102,7 @@ const queryDevice = async (deviceId) => {
 	const data = await queryFirebase(deviceId);
 	return {
 		on: data.on,
-		isPaused: data.isPaused,
-		isRunning: data.isRunning,
-		currentRunCycle: [{
-			currentCycle: 'rinse',
-			nextCycle: 'spin',
-			lang: 'en',
-		}],
-		currentTotalRemainingTime: 1212,
-		currentCycleRemainingTime: 301,
+		temperatureSetpointCelsius: data.temperatureSetpointCelsius
 	};
 };
 
@@ -130,6 +121,10 @@ const updateDevice = async (execution, deviceId) => {
 		case 'action.devices.commands.PauseUnpause':
 			state = { isPaused: params.pause };
 			ref = firebaseRef.child(deviceId).child('StartStop');
+			break;
+		case 'action.devices.commands.TemperatureControl':
+			state = { temperatureSetpointCelsius: params.temperatureSetpointCelsius };
+			ref = firebaseRef.child(deviceId).child('TemperatureControl');
 			break;
 	}
 

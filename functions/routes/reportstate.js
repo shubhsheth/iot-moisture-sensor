@@ -1,5 +1,7 @@
 const functions = require('firebase-functions');
 
+const USER_ID = '123';
+
 module.exports = function (homegraph) {
     var module = {};
 

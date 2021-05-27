@@ -1,26 +1,27 @@
 [
-  {
-    "id": "washer",
-    "type": "action.devices.types.WASHER",
-    "traits": [
-      "action.devices.traits.OnOff",
-      "action.devices.traits.StartStop",
-      "action.devices.traits.RunCycle"
-    ],
-    "name": {
-      "defaultNames": ["My Washer"],
-      "name": "Washer",
-      "nicknames": ["Washer"]
-    },
-    "deviceInfo": {
-      "manufacturer": "Acme Co",
-      "model": "acme-washer",
-      "hwVersion": "1.0",
-      "swVersion": "1.0.1"
-    },
-    "willReportState": true,
-    "attributes": {
-      "pausable": true
-    }
-  }
+	{
+		"id": "moisture-sensor-2",
+		"type": "action.devices.types.BOILER",
+		"traits": [
+			"action.devices.traits.TemperatureControl",
+			"action.devices.traits.OnOff"
+		],
+		"name": {
+			"name": "Moisture Sensor"
+		},
+		"deviceInfo": {
+			"manufacturer": "Shubh",
+			"model": "shubh",
+			"hwVersion": "1.0",
+			"swVersion": "1.0"
+		},
+		"willReportState": true,
+		"attributes": {
+			"temperatureRange": {
+				"minThresholdCelsius": 10,
+				"maxThresholdCelsius": 50
+			},
+			"temperatureUnitForUX": "F"
+		}
+	}
 ]
