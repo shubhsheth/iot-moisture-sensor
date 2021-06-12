@@ -7,7 +7,7 @@ As of building this, HomeKit doesn't support a moisture sensor. Instead of that 
 
 ## Installation
 * Install this library in Arduino IDE: https://github.com/Mixiaoxiao/Arduino-HomeKit-ESP8266
-* Upload MoistureSensor.ino, my_accessory.c and wifi_info.h to your NodeMCU (change Wi-Fi config before)
+* Upload files in src to your NodeMCU (change Wi-Fi config before)
 
 ## Components
 * NodeMCU
